@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all medical inquiries
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new medical inquiry
+    </h2>
+
+    <form action="/insert_medical_inquiry" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="patient_message_box">
+          Patient message
+        </label>
+
+        <input type="text" id="patient_message_box" name="query_patient_message">
+      </div>
+
+      <div>
+        <label for="ai_recommendation_box">
+          Ai recommendation
+        </label>
+
+        <textarea id="ai_recommendation_box" name="query_ai_recommendation" rows="3"></textarea>
+      </div>
+
+      <button>
+        Create medical inquiry
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Patient message
+        </th>
+
+        <th>
+          Ai recommendation
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_medical_inquiries.each do |a_medical_inquiry| %>
+      <tr>
+        <td>
+          <%= a_medical_inquiry.id %>
+        </td>
+
+        <td>
+          <%= a_medical_inquiry.user_id %>
+        </td>
+
+        <td>
+          <%= a_medical_inquiry.patient_message %>
+        </td>
+
+        <td>
+          <%= a_medical_inquiry.ai_recommendation %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_medical_inquiry.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_medical_inquiry.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/medical_inquiries/<%= a_medical_inquiry.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Medical inquiry #<%= @the_medical_inquiry.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/medical_inquiries">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_medical_inquiry/<%= @the_medical_inquiry.id %>">
+          Delete medical inquiry
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_medical_inquiry.user_id %>
+      </dd>
+
+      <dt>
+        Patient message
+      </dt>
+      <dd>
+        <%= @the_medical_inquiry.patient_message %>
+      </dd>
+
+      <dt>
+        Ai recommendation
+      </dt>
+      <dd>
+        <%= @the_medical_inquiry.ai_recommendation %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_medical_inquiry.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_medical_inquiry.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit medical inquiry
+    </h2>
+
+    <form action="/modify_medical_inquiry/<%= @the_medical_inquiry.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_medical_inquiry.user_id %>">
+      </div>
+
+      <div>
+        <label for="patient_message_box">
+          Patient message
+        </label>
+
+        <input type="text" id="patient_message_box" name="query_patient_message" value="<%= @the_medical_inquiry.patient_message %>">
+      </div>
+
+      <div>
+        <label for="ai_recommendation_box">
+          Ai recommendation
+        </label>
+
+        <textarea id="ai_recommendation_box" name="query_ai_recommendation"><%= @the_medical_inquiry.ai_recommendation %></textarea>
+      </div>
+
+      <button>
+        Update medical inquiry
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

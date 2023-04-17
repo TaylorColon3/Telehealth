@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Medical inquiry resource:
+
+  # CREATE
+  post("/insert_medical_inquiry", { :controller => "medical_inquiries", :action => "create" })
+          
+  # READ
+  get("/medical_inquiries", { :controller => "medical_inquiries", :action => "index" })
+  
+  get("/medical_inquiries/:path_id", { :controller => "medical_inquiries", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_medical_inquiry/:path_id", { :controller => "medical_inquiries", :action => "update" })
+  
+  # DELETE
+  get("/delete_medical_inquiry/:path_id", { :controller => "medical_inquiries", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM
