@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all health conditions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new health condition
+    </h2>
+
+    <form action="/insert_health_condition" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="medical_id_box">
+          Medical
+        </label>
+
+        <input type="text" id="medical_id_box" name="query_medical_id">
+      </div>
+
+      <button>
+        Create health condition
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Medical
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_health_conditions.each do |a_health_condition| %>
+      <tr>
+        <td>
+          <%= a_health_condition.id %>
+        </td>
+
+        <td>
+          <%= a_health_condition.user_id %>
+        </td>
+
+        <td>
+          <%= a_health_condition.medical_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_health_condition.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_health_condition.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/health_conditions/<%= a_health_condition.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

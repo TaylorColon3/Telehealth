@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Health condition #<%= @the_health_condition.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/health_conditions">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_health_condition/<%= @the_health_condition.id %>">
+          Delete health condition
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_health_condition.user_id %>
+      </dd>
+
+      <dt>
+        Medical
+      </dt>
+      <dd>
+        <%= @the_health_condition.medical_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_health_condition.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_health_condition.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit health condition
+    </h2>
+
+    <form action="/modify_health_condition/<%= @the_health_condition.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_health_condition.user_id %>">
+      </div>
+
+      <div>
+        <label for="medical_id_box">
+          Medical
+        </label>
+
+        <input type="text" id="medical_id_box" name="query_medical_id" value="<%= @the_health_condition.medical_id %>">
+      </div>
+
+      <button>
+        Update health condition
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

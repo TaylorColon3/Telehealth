@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_17_170927) do
+ActiveRecord::Schema.define(version: 2023_04_18_150457) do
+
+  create_table "health_conditions", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "medical_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "medical_inquiries", force: :cascade do |t|
     t.integer "user_id"
@@ -25,6 +32,13 @@ ActiveRecord::Schema.define(version: 2023_04_17_170927) do
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "vitals", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "health_conditions"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

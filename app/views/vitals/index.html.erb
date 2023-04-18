@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all vitals
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new vital
+    </h2>
+
+    <form action="/insert_vital" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="health_conditions_box">
+          Health conditions
+        </label>
+
+        <input type="text" id="health_conditions_box" name="query_health_conditions">
+      </div>
+
+      <button>
+        Create vital
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Health conditions
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_vitals.each do |a_vital| %>
+      <tr>
+        <td>
+          <%= a_vital.id %>
+        </td>
+
+        <td>
+          <%= a_vital.user_id %>
+        </td>
+
+        <td>
+          <%= a_vital.health_conditions %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_vital.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_vital.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/vitals/<%= a_vital.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Vital #<%= @the_vital.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/vitals">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_vital/<%= @the_vital.id %>">
+          Delete vital
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_vital.user_id %>
+      </dd>
+
+      <dt>
+        Health conditions
+      </dt>
+      <dd>
+        <%= @the_vital.health_conditions %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_vital.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_vital.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit vital
+    </h2>
+
+    <form action="/modify_vital/<%= @the_vital.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_vital.user_id %>">
+      </div>
+
+      <div>
+        <label for="health_conditions_box">
+          Health conditions
+        </label>
+
+        <input type="text" id="health_conditions_box" name="query_health_conditions" value="<%= @the_vital.health_conditions %>">
+      </div>
+
+      <button>
+        Update vital
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

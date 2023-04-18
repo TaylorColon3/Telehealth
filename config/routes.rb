@@ -1,7 +1,46 @@
 Rails.application.routes.draw do
+  # Routes for the Health condition resource:
+
+  # CREATE
+  post("/insert_health_condition", { :controller => "health_conditions", :action => "create" })
+          
+  # READ
+  get("/health_conditions", { :controller => "health_conditions", :action => "index" })
+  
+  get("/health_conditions/:path_id", { :controller => "health_conditions", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_health_condition/:path_id", { :controller => "health_conditions", :action => "update" })
+  
+  # DELETE
+  get("/delete_health_condition/:path_id", { :controller => "health_conditions", :action => "destroy" })
+
+  #------------------------------
+
+  # Routes for the Vital resource:
+
+  # CREATE
+  post("/insert_vital", { :controller => "vitals", :action => "create" })
+          
+  # READ
+  get("/vitals", { :controller => "vitals", :action => "index" })
+  
+  get("/vitals/:path_id", { :controller => "vitals", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_vital/:path_id", { :controller => "vitals", :action => "update" })
+  
+  # DELETE
+  get("/delete_vital/:path_id", { :controller => "vitals", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Medical inquiry resource:
 
   # CREATE
+  get("/", { :controller => "medical_inquiries", :action => "index" })
   post("/insert_medical_inquiry", { :controller => "medical_inquiries", :action => "create" })
           
   # READ
