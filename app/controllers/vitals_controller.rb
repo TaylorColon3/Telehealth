@@ -20,7 +20,7 @@ class VitalsController < ApplicationController
   def create
     the_vital = Vital.new
     the_vital.user_id = params.fetch("query_user_id")
-    the_vital.health_conditions = params.fetch("query_health_conditions")
+    the_vital.health_conditions = params.fetch("query_vitals")
 
     if the_vital.valid?
       the_vital.save
